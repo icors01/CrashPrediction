@@ -247,13 +247,6 @@ def get_count_matrix(df, date_col='DATE', cell_col='cell_id'):
     pivot_df = counts.pivot(index=date_col, columns=cell_col, values='num_crashes').fillna(0)
     return pivot_df.to_numpy(), pivot_df.index, pivot_df.columns
 
-def prepare_hawkes_input(master_df):
-    """
-    Convenience function to prepare data for src/model.py compute_hawkes_features.
-    Processes the master_df (which might have one row per crash) into the required matrix.
-    """
-    return get_count_matrix(master_df)
-
 def build_cell_day_master(start_date, end_date, weather_df, grid_gdf, crash_gdf):
     """
     Builds a master dataset with one row per (cell, day), merging in weather data.
