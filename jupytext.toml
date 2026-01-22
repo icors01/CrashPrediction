@@ -1,0 +1,6 @@
+# jupytext.toml
+
+# Always pair .ipynb notebooks with a light .py script in the same folder
+formats = "ipynb,py:percent"
+notebook_metadata_filter = "all"
+cell_metadata_filter = "-all"
